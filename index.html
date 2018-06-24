@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- TITLE OF SITE -->
+    <title>Technical Documentation Page</title>
+    
+    <!-- META DATA -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--font-family-->
+    <link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+        
+    <!--JS, JQuery & bootstrap.min.css-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- for title img -->
+    <link rel="shortcut icon" type="image/icon" href="https://78.media.tumblr.com/6c2ea29de6ea251c2c57210ee7de2021/tumblr_pa8skxZMET1xozando1_250.png"/>
+    
+    </head>
+    
+    <body>
+        <div class="m1 menu">
+    	   <nav id="navbar">
+               <header>GitHub Guide</header>
+        	   <ul>
+                   <li><a class="active" href="#introduction">Introduction</a></li>
+            	   <li><a href="#setup">Setup</li></a>
+            	   <li><a href="#workflow">Workflow</a></li>
+            	   <li><a href="#add">Add & Commit</a></li>
+                   <li><a href="#pushing">Pushing Changes</a></li>
+                   <li><a href="#branching">Branching</a></li>
+                   <li><a href="#update">Update & Merge</a></li>
+                   <li><a href="#tagging">Tagging</a></li>
+                   <li><a href="#log">Log</a></li>
+                   <li><a href="#replace">Replace Local Changes</a></li>
+                   <li><a href="#useful">Useful Tips</a></li>
+               </ul>
+            </nav>
+        </div>
+    <section id="introduction">
+        <header>Introduction</header>
+        <article>
+            <p>GitHub is a web-based hosting service for software development projects that use the Git revision control system. GitHub offers both paid plans for private repositories, and free accounts for open source projects. This is a simple guide for getting started with git.</p>
+        </article>
+    </section>
+    
+    <section id="setup">
+        <header>Setup</header>
+        <article>
+            <li><a id="download" href="http://git-scm.com/download/mac">Download git for OSX</a></li>
+            <li><a id="download" href="http://msysgit.github.io/">Download git for Windows</a></li>
+            <li><a id="download" href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Download git for Linux</a></li>
+        </article>
+    </section>
+    
+    <section id="create">
+        <header>Create a new repository</header>
+        <article>
+            <p>A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets – anything your project needs.</p>
+            <ol type="I">
+                <li>At the lower left, click <b>New repository</b>.</li>
+                <li>Name your repository <code>build-a-technical-documentation-page</code></li>
+                <li>Write a short description.</li>
+                <li>Click <b>Create repository</b>.</li>
+            </ol>
+            <p><img src="https://78.media.tumblr.com/683a96c9ab6f24b197cd08ecdf344984/tumblr_palo85OdlP1xozando1_640.gif" alt="branch gif"></p>
+        </article>
+    </section>
+    
+    <section id="workflow">
+        <header>Workflow</header>
+        <article>
+            <p>Local repository consists of three "trees" maintained by git. The first one is the <b>Working Directory</b> which holds the actual files. The second one is the <b>Index</b> which acts as a staging area and finally the <b>HEAD</b> which points to the last commit made.</p>
+            
+            <p><img src="http://www.tigraine.at/wp-content/uploads/2010/09/image6.png" alt="GitHub workflow"></p>
+            
+        </article>
+    </section>
+    
+    <section id="add">
+        <header>Add & Commit</header>
+        <article>
+            <p>Upload an existing file to a GitHub repository using the command line.</p>
+            <ol type="I">
+                <li>Open Git Bash in working directory</li>
+                    <li>Change the current working directory to local repository.</li>
+                    <li>Stage the file for commit to local repository.</li>
+                    <pre class="command-line"><span class="command"> git add .</span><br><span class="comment"> # Adds the file to your local repository and stages it for commit. To unstage a file, use 'git reset HEAD <em>YOUR-FILE</em>'.</span>
+                    </pre>                    
+                    <li>Commit the file that was staged in local repository.</li>      
+                    <pre class="command-line"><span class="command"> git commit -m "Add existing file"</span><br><span class="comment"> # Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.</span>
+                    </pre>
+                    <li>Push the changes in local repository to GitHub.</li>
+                    <pre class="command-line"><span class="command"> git push origin <em>your-branch</em></span><br><span class="comment"> # Pushes the changes in your local repository up to the remote repository you specified as the origin</span>
+                    </pre>
+            </ol>
+        </article>
+    </section>
+    
+    <section id="pushing">
+        <header>Pushing Changes</header>
+        <article>
+            <p>When changes are made on GitHub, it not only saved the change and committed the file at the same time, it also showed up right away in GitHub repository. Changes are now in the <b>HEAD</b> of your local working copy. To send those changes to your remote repository, execute <code>git push origin master</code> Change <i>master</i> to whatever branch you want to push your changes to.</p>
+            <p>If you have not cloned an existing repository and want to connect your repository to a remote server, you need to add it with <code>git remote add origin &lt;server&gt;</code> Now you are able to push your changes to the selected remote server.</p>
+        </article>
+    </section>
+    
+    <section id="branching">
+        <header>Branching</header>
+        <article>
+            <p>When you create a branch in your project, you're creating an environment where you can try out new ideas. Changes you make on a branch don't affect the <i>master</i> branch, so you're free to experiment and commit changes, safe in the knowledge that your branch won't be merged until it's ready to be reviewed by someone you're collaborating with.</p>
+            <p><img src="http://rogerdudler.github.io/git-guide/img/branches.png" alt="Branching Workflow"></p>
+            <ul>create a new branch named "feature_x" and switch to it using<br><code>git checkout -b feature_x</code></ul>
+            <ul>switch back to master<br><code>git checkout master</code></ul>
+            <ul>and delete the branch again<br><code>git branch -d feature_x</code></ul>
+            <ul>a branch is not available to others unless you push the branch to your remote repository<br><code>git push origin &lt;branch&gt;</code></ul>
+        </article>
+    </section>
+    
+    <section id="update">
+        <header>Update & Merge</header>
+        <article>
+            <ul>to update your local repository to the newest commit, execute<br><code>git pull</code></ul>
+            <ul>in your working directory to fetch and merge remote changes.</ul>
+            <ul>to merge another branch into your active branch (e.g. master), use<br><code>git merge &lt;branch&gt;</code></ul>
+            <ul>in both cases git tries to auto-merge changes. Unfortunately, this is not </ul>
+            <ul>always possible and results in conflicts. You are responsible to merge </ul>
+            <ul>those conflicts manually by editing the files shown by git. After </ul>
+            <ul>changing, you need to mark them as merged with<br><code>git add &lt;filename&gt;</code></ul>
+            <ul>before merging changes, you can also preview them by using<br><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code></ul>
+        </article>
+    </section>
+    
+    <section id="tagging">
+        <header>Tagging</header>
+        <article>
+            <ul>it's recommended to create tags for software releases. this is a known </ul>
+            <ul>concept, which also exists in SVN. You can create a new tag named 1.0.0 by executing<br><code>git tag 1.0.0 1b2e1d63ff</code></ul>
+            <ul>the 1b2e1d63ff stands for the first 10 characters of the commit id you </ul>
+            <ul>want to reference with your tag. You can get the commit id by looking at the... </ul>
+        </article>
+    </section>
+    
+    <section id="log">
+        <header>Log</header>
+        <article>
+            <ul>in its simplest form, you can study repository history using.. <code>git log</code></ul>
+            <ul>You can add a lot of parameters to make the log look like what you want. </ul>
+            <ul>You can add a lot of parameters to make the log look like what you want. <br><code>git log --author=bob</code></ul>
+            <ul>To see a very compressed log where each commit is one line:<br><code>git log --pretty=oneline</code></ul>
+            <ul>Or maybe you want to see an ASCII art tree of all the branches, </ul>
+            <ul>decorated with the names of tags and branches: <br><code>git log --graph --oneline --decorate --all</code></ul>
+            <ul>See only which files have changed: <br><code>git log --name-status</code></ul>
+            <ul>These are just a few of the possible parameters you can use. For more, see<br><code>git log --help</code></ul>
+        </article>
+    </section>
+    
+    <section id="replace">
+        <header>Replace Local Changes</header>
+        <article>
+            <ul>In case you did something wrong, which for sure never happens ;), you </ul>
+            <ul>can replace local changes using the command<br><code>git checkout -- &lt;filename&gt;</code></ul>
+            <ul>this replaces the changes in your working tree with the last content in </ul>
+            <ul>HEAD. Changes already added to the index, as well as new files, will be kept.</ul>
+            <ul>If you instead want to drop all your local changes and commits, fetch the </ul>
+            <ul>latest history from the server and point your local master branch at it like this<br><code>git fetch origin</code><br><code>git reset --hard origin/master</code></ul>
+        </article>
+    </section>
+    
+    <section id="useful">
+        <header>Useful Tips</header>
+        <article>
+            <ul>built-in git GUI<br><code>gitk</code></ul>
+            <ul>use colorful git output<br><code>git config color.ui true</code></ul>
+            <ul>show log on just one line per commit<br><code>git config format.pretty oneline</code></ul>
+            <ul>use interactive adding<br><code>git add -i</code></ul>
+        </article>
+    </section>
+    </body>
+</html>
